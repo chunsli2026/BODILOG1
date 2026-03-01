@@ -62,16 +62,16 @@ class _TrendChart extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final analysed =
+    final analyzed =
         sessions.where((s) => s.updrsScore != null).toList().reversed.toList();
 
-    if (analysed.isEmpty) {
-      return const Center(child: Text('No analysed sessions yet'));
+    if (analyzed.isEmpty) {
+      return const Center(child: Text('No analyzed sessions yet'));
     }
 
     final spots = <FlSpot>[
-      for (var i = 0; i < analysed.length; i++)
-        FlSpot(i.toDouble(), analysed[i].updrsScore!.toDouble()),
+      for (var i = 0; i < analyzed.length; i++)
+        FlSpot(i.toDouble(), analyzed[i].updrsScore!.toDouble()),
     ];
 
     return LineChart(

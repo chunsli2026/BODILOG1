@@ -282,8 +282,9 @@ class TremorAnalysisService {
     }
 
     // Normalise gain at centre frequency.
-    final gain = _evalPoly(bCoeffs, math.cos(wLow)) /
-        _evalPoly(aCoeffs, math.cos(wLow)).abs().clamp(_minPolyEval, double.infinity);
+    final wCenter = (wLow + wHigh) / 2.0;
+    final gain = _evalPoly(bCoeffs, math.cos(wCenter)) /
+        _evalPoly(aCoeffs, math.cos(wCenter)).abs().clamp(_minPolyEval, double.infinity);
     final normB = bCoeffs.map((v) => v / gain).toList();
 
     return (b: normB, a: aCoeffs);

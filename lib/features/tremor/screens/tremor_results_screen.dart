@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../models/tremor_result.dart';
 import '../providers/tremor_providers.dart';
 import '../widgets/medical_disclaimer_dialog.dart';
 import '../widgets/spectrum_chart.dart';

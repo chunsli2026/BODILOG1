@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
+import '../../../core/error/result.dart';
 import '../models/sensor_data.dart';
 import '../providers/tremor_providers.dart';
 import '../widgets/medical_disclaimer_dialog.dart';
@@ -60,12 +61,11 @@ class _TremorRecordingScreenState
     final stream = sensorService.startDataStream('simulated-device');
 
     _streamSub = stream.listen((result) {
-      if (result.isSuccess) {
-        final sample = (result as dynamic).data as SensorData;
-        _recorded.add(sample);
+      if (result case Success(:final data)) {
+        _recorded.add(data);
         ref
             .read(realtimeSensorDataProvider.notifier)
-            .addSample(sample, _samplingRate);
+            .addSample(data, _samplingRate);
       }
     });
 
@@ -85,8 +85,8 @@ class _TremorRecordingScreenState
 
     final sensorService = ref.read(wearableSensorServiceProvider);
     final rateResult = await sensorService.getSamplingRate();
-    if (rateResult.isSuccess) {
-      _samplingRate = (rateResult as dynamic).data as double;
+    if (rateResult case Success(:final data)) {
+      _samplingRate = data;
     }
     await sensorService.stopDataStream();
 
@@ -94,21 +94,21 @@ class _TremorRecordingScreenState
     final result =
         await analysisService.analyzeRecording(_recorded, _samplingRate);
 
-    if (result.isSuccess) {
-      ref.read(currentTremorResultProvider.notifier).state =
-          (result as dynamic).data;
-      ref.read(recordingStateProvider.notifier).state =
-          RecordingState.complete;
-    } else {
-      if (mounted) {
-        ScaffoldMessenger.of(context).showSnackBar(
-          SnackBar(
-            content: Text((result as dynamic).failure.message as String),
-            backgroundColor: Colors.red,
-          ),
-        );
-      }
-      ref.read(recordingStateProvider.notifier).state = RecordingState.error;
+    switch (result) {
+      case Success(:final data):
+        ref.read(currentTremorResultProvider.notifier).state = data;
+        ref.read(recordingStateProvider.notifier).state =
+            RecordingState.complete;
+      case AppError(:final failure):
+        if (mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text(failure.message),
+              backgroundColor: Colors.red,
+            ),
+          );
+        }
+        ref.read(recordingStateProvider.notifier).state = RecordingState.error;
     }
   }
 

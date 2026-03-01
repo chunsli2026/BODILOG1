@@ -16,8 +16,8 @@ class UpdrsScoreDisplay extends StatelessWidget {
       'Moderate tremor (1–10 cm). Prompt medical evaluation recommended.',
       'Severe tremor (> 10 cm). Urgent medical evaluation recommended.',
     ];
-    return descriptions.elementAtOrNull(score) ??
-        'Unknown severity level.';
+    final clamped = score.clamp(0, descriptions.length - 1);
+    return descriptions[clamped];
   }
 
   @override
