@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
 
 import '../features/dashboard/screens/dashboard_screen.dart';
+import '../features/tremor/screens/tremor_history_screen.dart';
+import '../features/tremor/screens/tremor_recording_screen.dart';
+import '../features/tremor/screens/tremor_results_screen.dart';
+import '../features/tremor/screens/tremor_screen.dart';
 
 /// Named route constants and route generation for the app.
 class AppRouter {
@@ -12,6 +16,9 @@ class AppRouter {
   static const String history = '/history';
   static const String results = '/results';
   static const String tremor = '/tremor';
+  static const String tremorRecording = '/tremor/recording';
+  static const String tremorResults = '/tremor/results';
+  static const String tremorHistory = '/tremor/history';
 
   /// Generates routes for the [MaterialApp.onGenerateRoute] callback.
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -43,7 +50,22 @@ class AppRouter {
         );
       case tremor:
         return MaterialPageRoute(
-          builder: (_) => const _PlaceholderPage(title: 'Tremor'),
+          builder: (_) => const TremorScreen(),
+          settings: settings,
+        );
+      case tremorRecording:
+        return MaterialPageRoute(
+          builder: (_) => const TremorRecordingScreen(),
+          settings: settings,
+        );
+      case tremorResults:
+        return MaterialPageRoute(
+          builder: (_) => const TremorResultsScreen(),
+          settings: settings,
+        );
+      case tremorHistory:
+        return MaterialPageRoute(
+          builder: (_) => const TremorHistoryScreen(),
           settings: settings,
         );
       default:
