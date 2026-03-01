@@ -1,0 +1,43 @@
+name: bodilog
+description: AI-powered urine test strip analysis with IoT integration.
+publish_to: "none"
+
+version: 1.0.0+1
+
+environment:
+  sdk: ">=3.0.0 <4.0.0"
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  # Image capture
+  camera: ^0.10.5+9
+  # Image processing
+  image: ^4.1.3
+  # File system paths
+  path_provider: ^2.1.1
+  # State management
+  flutter_riverpod: ^2.4.9
+  # BLE device communication
+  flutter_blue_plus: ^1.31.0
+  # Data visualization
+  fl_chart: ^0.65.0
+  # Local SQLite database
+  sqflite: ^2.3.0
+  # Encrypted storage
+  flutter_secure_storage: ^9.0.0
+  # Runtime permission management
+  permission_handler: ^11.0.0
+  # Date/number formatting and localization
+  intl: ^0.18.1
+
+  cupertino_icons: ^1.0.6
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
