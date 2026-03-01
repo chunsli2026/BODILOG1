@@ -1,0 +1,22 @@
+{
+  "name": "extended_14",
+  "padCount": 14,
+  "padSpacing": 0.06,
+  "padAspectRatio": 2.5,
+  "pads": [
+    {"index": 0,  "parameterName": "Leukocytes",      "relativePosition": 0.05, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 1,  "parameterName": "Nitrite",         "relativePosition": 0.14, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 2,  "parameterName": "Urobilinogen",    "relativePosition": 0.23, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 3,  "parameterName": "Protein",         "relativePosition": 0.32, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 4,  "parameterName": "pH",              "relativePosition": 0.41, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 5,  "parameterName": "Blood",           "relativePosition": 0.50, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 6,  "parameterName": "Specific Gravity","relativePosition": 0.59, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 7,  "parameterName": "Ketone",          "relativePosition": 0.68, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 8,  "parameterName": "Bilirubin",       "relativePosition": 0.77, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 9,  "parameterName": "Glucose",         "relativePosition": 0.86, "relativeWidth": 0.6, "relativeHeight": 0.07},
+    {"index": 10, "parameterName": "Ascorbic Acid",   "relativePosition": 0.90, "relativeWidth": 0.6, "relativeHeight": 0.05},
+    {"index": 11, "parameterName": "Creatinine",      "relativePosition": 0.93, "relativeWidth": 0.6, "relativeHeight": 0.05},
+    {"index": 12, "parameterName": "Calcium",         "relativePosition": 0.96, "relativeWidth": 0.6, "relativeHeight": 0.05},
+    {"index": 13, "parameterName": "Microalbumin",    "relativePosition": 0.99, "relativeWidth": 0.6, "relativeHeight": 0.05}
+  ]
+}
