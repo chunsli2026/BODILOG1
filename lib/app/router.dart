@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 
+import '../features/bluetooth/models/iot_device_model.dart';
+import '../features/bluetooth/screens/device_detail_screen.dart';
+import '../features/bluetooth/screens/devices_screen.dart';
 import '../features/dashboard/screens/dashboard_screen.dart';
 
 /// Named route constants and route generation for the app.
@@ -9,6 +12,7 @@ class AppRouter {
   static const String dashboard = '/dashboard';
   static const String camera = '/camera';
   static const String devices = '/devices';
+  static const String deviceDetail = '/devices/detail';
   static const String history = '/history';
   static const String results = '/results';
   static const String tremor = '/tremor';
@@ -28,7 +32,13 @@ class AppRouter {
         );
       case devices:
         return MaterialPageRoute(
-          builder: (_) => const _PlaceholderPage(title: 'Devices'),
+          builder: (_) => const DevicesScreen(),
+          settings: settings,
+        );
+      case deviceDetail:
+        final device = settings.arguments as IoTDevice;
+        return MaterialPageRoute(
+          builder: (_) => DeviceDetailScreen(device: device),
           settings: settings,
         );
       case history:

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../features/bluetooth/screens/devices_screen.dart';
 import '../features/dashboard/screens/dashboard_screen.dart';
 import 'router.dart';
 import 'theme.dart';
@@ -34,7 +35,7 @@ class _HomeShellState extends State<_HomeShell> {
   static const List<Widget> _screens = [
     DashboardScreen(),
     _PlaceholderScreen(label: 'Camera'),
-    _PlaceholderScreen(label: 'Devices'),
+    DevicesScreen(),
     _PlaceholderScreen(label: 'History'),
   ];
 

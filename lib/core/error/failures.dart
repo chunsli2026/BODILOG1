@@ -38,3 +38,48 @@ class PermissionFailure extends Failure {
 class GeneralFailure extends Failure {
   const GeneralFailure(super.message);
 }
+
+// ---------------------------------------------------------------------------
+// Bluetooth-specific failure subclasses
+// ---------------------------------------------------------------------------
+
+/// Failure raised when Bluetooth is turned off on the device.
+class BluetoothDisabledFailure extends BluetoothFailure {
+  const BluetoothDisabledFailure()
+      : super(
+          'Bluetooth is turned off. Please enable Bluetooth in your device settings.',
+        );
+}
+
+/// Failure raised when BLE permissions have not been granted.
+class PermissionDeniedFailure extends BluetoothFailure {
+  const PermissionDeniedFailure()
+      : super(
+          'Bluetooth permissions are required to connect to health devices. '
+          'Please grant permissions in Settings.',
+        );
+}
+
+/// Failure raised when the target BLE device cannot be discovered.
+class DeviceNotFoundFailure extends BluetoothFailure {
+  const DeviceNotFoundFailure()
+      : super(
+          'Could not find the device. Please ensure it is turned on and in range.',
+        );
+}
+
+/// Failure raised when a BLE connection attempt times out.
+class ConnectionTimeoutFailure extends BluetoothFailure {
+  const ConnectionTimeoutFailure()
+      : super(
+          'Connection timed out. Please ensure the device is in pairing mode and try again.',
+        );
+}
+
+/// Failure raised during BLE characteristic read or notification operations.
+class DataTransferFailure extends BluetoothFailure {
+  const DataTransferFailure()
+      : super(
+          'Error reading data from device. Please try syncing again.',
+        );
+}

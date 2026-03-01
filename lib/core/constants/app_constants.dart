@@ -7,7 +7,7 @@ class AppConstants {
 
   // ── Database ───────────────────────────────────────────────────────────────
   static const String databaseName = 'bodilog.db';
-  static const int databaseVersion = 1;
+  static const int databaseVersion = 2;
 
   // ── Storage ────────────────────────────────────────────────────────────────
   /// Sub-directory name inside the app documents directory used for images.
@@ -19,6 +19,22 @@ class AppConstants {
 
   /// Duration in seconds to wait when establishing a BLE connection.
   static const int bleConnectionTimeoutSeconds = 30;
+
+  // ── BLE Service UUIDs ──────────────────────────────────────────────────────
+  /// GATT Body Composition service (Smart Scale).
+  static const String bleServiceBodyComposition = '0000181b-0000-1000-8000-00805f9b34fb';
+
+  /// GATT Blood Pressure service.
+  static const String bleServiceBloodPressure = '00001810-0000-1000-8000-00805f9b34fb';
+
+  /// GATT Health Thermometer service.
+  static const String bleServiceThermometer = '00001809-0000-1000-8000-00805f9b34fb';
+
+  /// GATT Pulse Oximeter service.
+  static const String bleServicePulseOximeter = '00001822-0000-1000-8000-00805f9b34fb';
+
+  /// Custom wearable sensor service UUID (default for tremor analysis).
+  static const String bleServiceWearableSensor = '0000fff0-0000-1000-8000-00805f9b34fb';
 
   // ── Analysis ───────────────────────────────────────────────────────────────
   /// Minimum confidence score (0–1) to consider a colour-match result valid.
