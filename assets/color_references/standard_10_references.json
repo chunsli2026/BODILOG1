@@ -1,0 +1,126 @@
+{
+  "version": "1.0",
+  "chartName": "standard_10",
+  "parameters": [
+    {
+      "parameter": "Leukocytes",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Urinary tract infection screening",
+      "levels": [
+        { "label": "Negative",    "lab": [93.0,  -1.5,   9.0], "severity": "normal" },
+        { "label": "Trace",       "lab": [80.0,   8.0,  12.0], "severity": "borderline" },
+        { "label": "Small (+)",   "lab": [68.0,  18.0,   5.0], "severity": "abnormal" },
+        { "label": "Moderate (++)", "lab": [55.0, 25.0,  -5.0], "severity": "abnormal" },
+        { "label": "Large (+++)", "lab": [38.0,  28.0, -15.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "Nitrite",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Bacterial infection indicator",
+      "levels": [
+        { "label": "Negative",  "lab": [93.0, -1.5,  9.0], "severity": "normal" },
+        { "label": "Positive",  "lab": [72.0, 30.0, 15.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "Urobilinogen",
+      "normalRange": "Normal (0.2–1.0 mg/dL)",
+      "clinicalSignificance": "Liver function and haemolysis screening",
+      "levels": [
+        { "label": "Normal (0.2 mg/dL)",  "lab": [88.0,  2.0,  28.0], "severity": "normal" },
+        { "label": "1.0 mg/dL",           "lab": [80.0,  8.0,  38.0], "severity": "normal" },
+        { "label": "2.0 mg/dL",           "lab": [70.0, 16.0,  45.0], "severity": "borderline" },
+        { "label": "4.0 mg/dL",           "lab": [58.0, 24.0,  48.0], "severity": "abnormal" },
+        { "label": "8.0 mg/dL",           "lab": [45.0, 32.0,  45.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "Protein",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Kidney function and proteinuria screening",
+      "levels": [
+        { "label": "Negative",       "lab": [80.0, -8.0,  35.0], "severity": "normal" },
+        { "label": "Trace (15 mg/dL)", "lab": [72.0, -12.0, 25.0], "severity": "borderline" },
+        { "label": "30 mg/dL (+)",   "lab": [62.0, -16.0, 12.0], "severity": "abnormal" },
+        { "label": "100 mg/dL (++)", "lab": [50.0, -18.0,  0.0], "severity": "abnormal" },
+        { "label": "300 mg/dL (+++)", "lab": [38.0, -20.0, -8.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "pH",
+      "normalRange": "5.0–8.0",
+      "clinicalSignificance": "Acid-base balance and kidney function",
+      "levels": [
+        { "label": "5.0 (Very acidic)",  "lab": [65.0, 22.0,  48.0], "severity": "borderline" },
+        { "label": "6.0 (Acidic)",       "lab": [75.0, 10.0,  50.0], "severity": "normal" },
+        { "label": "7.0 (Neutral)",      "lab": [82.0, -2.0,  42.0], "severity": "normal" },
+        { "label": "8.0 (Alkaline)",     "lab": [72.0, -12.0, 22.0], "severity": "normal" },
+        { "label": "9.0 (Very alkaline)", "lab": [55.0, -18.0,  5.0], "severity": "borderline" }
+      ]
+    },
+    {
+      "parameter": "Blood",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Haematuria and kidney/bladder disease screening",
+      "levels": [
+        { "label": "Negative",            "lab": [82.0,  -4.0,  40.0], "severity": "normal" },
+        { "label": "Non-haemolysed Trace", "lab": [72.0,  -8.0,  30.0], "severity": "borderline" },
+        { "label": "Haemolysed Trace",    "lab": [60.0, -12.0,  18.0], "severity": "borderline" },
+        { "label": "Small (+)",           "lab": [48.0, -15.0,   5.0], "severity": "abnormal" },
+        { "label": "Moderate (++)",       "lab": [36.0, -16.0,  -5.0], "severity": "abnormal" },
+        { "label": "Large (+++)",         "lab": [22.0, -14.0, -10.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "Specific Gravity",
+      "normalRange": "1.005–1.030",
+      "clinicalSignificance": "Kidney concentrating ability and hydration status",
+      "levels": [
+        { "label": "1.000 (Very dilute)", "lab": [45.0, -20.0,  -8.0], "severity": "borderline" },
+        { "label": "1.005",              "lab": [55.0, -15.0,  10.0], "severity": "normal" },
+        { "label": "1.010",              "lab": [65.0,  -8.0,  28.0], "severity": "normal" },
+        { "label": "1.015",              "lab": [72.0,  -2.0,  40.0], "severity": "normal" },
+        { "label": "1.020",              "lab": [78.0,   4.0,  48.0], "severity": "normal" },
+        { "label": "1.025",              "lab": [75.0,  10.0,  46.0], "severity": "normal" },
+        { "label": "1.030 (Concentrated)", "lab": [68.0, 16.0, 40.0], "severity": "borderline" }
+      ]
+    },
+    {
+      "parameter": "Ketone",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Diabetes and starvation ketosis screening",
+      "levels": [
+        { "label": "Negative",      "lab": [92.0,  0.0,  10.0], "severity": "normal" },
+        { "label": "Trace (5 mg/dL)", "lab": [80.0,  8.0,  12.0], "severity": "borderline" },
+        { "label": "Small (15 mg/dL)", "lab": [68.0, 18.0,   8.0], "severity": "abnormal" },
+        { "label": "Moderate (40 mg/dL)", "lab": [52.0, 26.0, -2.0], "severity": "abnormal" },
+        { "label": "Large (80+ mg/dL)", "lab": [35.0, 28.0, -12.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "Bilirubin",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Liver disease and bile duct obstruction screening",
+      "levels": [
+        { "label": "Negative",  "lab": [90.0,  0.0,  12.0], "severity": "normal" },
+        { "label": "Small (+)", "lab": [75.0, 10.0,  30.0], "severity": "borderline" },
+        { "label": "Moderate (++)", "lab": [58.0, 20.0, 38.0], "severity": "abnormal" },
+        { "label": "Large (+++)", "lab": [40.0, 28.0,  40.0], "severity": "critical" }
+      ]
+    },
+    {
+      "parameter": "Glucose",
+      "normalRange": "Negative",
+      "clinicalSignificance": "Diabetes mellitus screening",
+      "levels": [
+        { "label": "Negative",        "lab": [50.0, -18.0, -20.0], "severity": "normal" },
+        { "label": "Trace (100 mg/dL)", "lab": [55.0, -14.0,  5.0], "severity": "borderline" },
+        { "label": "250 mg/dL (+)",   "lab": [60.0,  -8.0, 22.0], "severity": "abnormal" },
+        { "label": "500 mg/dL (++)",  "lab": [55.0,   4.0, 32.0], "severity": "abnormal" },
+        { "label": "1000 mg/dL (+++)", "lab": [45.0,  16.0, 35.0], "severity": "critical" },
+        { "label": "2000+ mg/dL (++++)", "lab": [35.0, 24.0, 28.0], "severity": "critical" }
+      ]
+    }
+  ]
+}

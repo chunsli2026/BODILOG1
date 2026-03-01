@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../features/dashboard/screens/dashboard_screen.dart';
+import '../features/results/screens/results_screen.dart';
 
 /// Named route constants and route generation for the app.
 class AppRouter {
@@ -38,7 +39,7 @@ class AppRouter {
         );
       case results:
         return MaterialPageRoute(
-          builder: (_) => const _PlaceholderPage(title: 'Results'),
+          builder: (_) => const ResultsScreen(),
           settings: settings,
         );
       case tremor:

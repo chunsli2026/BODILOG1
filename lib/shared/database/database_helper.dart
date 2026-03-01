@@ -31,32 +31,40 @@ class DatabaseHelper {
 
     return openDatabase(
       path,
-      version: AppConstants.databaseVersion,
+      version: 2,
       onCreate: _onCreate,
+      onUpgrade: _onUpgrade,
     );
   }
 
   Future<void> _onCreate(Database db, int version) async {
     await db.execute('''
       CREATE TABLE test_results (
-        id              INTEGER PRIMARY KEY AUTOINCREMENT,
-        timestamp       TEXT    NOT NULL,
-        strip_image_path TEXT,
-        overall_status  TEXT
+        id                INTEGER PRIMARY KEY AUTOINCREMENT,
+        timestamp         TEXT    NOT NULL,
+        strip_image_path  TEXT,
+        strip_layout_name TEXT,
+        overall_status    TEXT
       )
     ''');
 
     await db.execute('''
       CREATE TABLE parameter_results (
-        id               INTEGER PRIMARY KEY AUTOINCREMENT,
-        test_id          INTEGER NOT NULL REFERENCES test_results(id),
-        parameter_name   TEXT    NOT NULL,
-        detected_value   TEXT,
-        severity         TEXT,
-        confidence_score REAL,
-        lab_l            REAL,
-        lab_a            REAL,
-        lab_b            REAL
+        id                   INTEGER PRIMARY KEY AUTOINCREMENT,
+        test_id              INTEGER NOT NULL REFERENCES test_results(id),
+        parameter_name       TEXT    NOT NULL,
+        detected_value       TEXT,
+        severity             TEXT,
+        confidence_score     REAL,
+        lab_l                REAL,
+        lab_a                REAL,
+        lab_b                REAL,
+        delta_e              REAL,
+        ref_lab_l            REAL,
+        ref_lab_a            REAL,
+        ref_lab_b            REAL,
+        normal_range         TEXT,
+        clinical_significance TEXT
       )
     ''');
 
@@ -101,5 +109,27 @@ class DatabaseHelper {
         gyro_z       REAL
       )
     ''');
+  }
+
+  Future<void> _onUpgrade(Database db, int oldVersion, int newVersion) async {
+    if (oldVersion < 2) {
+      // Add strip_layout_name to test_results
+      await db.execute(
+          'ALTER TABLE test_results ADD COLUMN strip_layout_name TEXT');
+
+      // Add new columns to parameter_results
+      await db.execute(
+          'ALTER TABLE parameter_results ADD COLUMN delta_e REAL');
+      await db.execute(
+          'ALTER TABLE parameter_results ADD COLUMN ref_lab_l REAL');
+      await db.execute(
+          'ALTER TABLE parameter_results ADD COLUMN ref_lab_a REAL');
+      await db.execute(
+          'ALTER TABLE parameter_results ADD COLUMN ref_lab_b REAL');
+      await db.execute(
+          'ALTER TABLE parameter_results ADD COLUMN normal_range TEXT');
+      await db.execute(
+          'ALTER TABLE parameter_results ADD COLUMN clinical_significance TEXT');
+    }
   }
 }
