@@ -117,7 +117,6 @@ class TremorAnalysisService {
     double samplingRate, {
     double lowCutoff = 1.0,
     double highCutoff = 12.0,
-    int order = 4,
   }) {
     if (signal.isEmpty) return [];
 
