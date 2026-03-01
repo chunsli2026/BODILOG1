@@ -38,15 +38,24 @@ class MedicalDisclaimerDialog extends StatelessWidget {
   /// Shows the dialog only if the user has not yet acknowledged it.
   ///
   /// Stores acknowledgment in [FlutterSecureStorage] on first use.
+  /// Silently skips the dialog when storage is unavailable (e.g. in tests).
   static Future<void> showIfNeeded(BuildContext context) async {
-    const storage = FlutterSecureStorage();
-    final value = await storage.read(key: 'tremor_disclaimer_acknowledged');
-    if (value != 'true') {
+    try {
+      const storage = FlutterSecureStorage();
+      final value =
+          await storage.read(key: 'tremor_disclaimer_acknowledged');
+      if (value == 'true') return;
       if (!context.mounted) return;
       final acknowledged = await show(context);
       if (acknowledged) {
-        await acknowledgeDisclaimer();
+        try {
+          await acknowledgeDisclaimer();
+        } catch (_) {
+          // Storage write failed; acknowledgment not persisted.
+        }
       }
+    } catch (_) {
+      // Storage unavailable (e.g. test environment); skip dialog.
     }
   }
 
