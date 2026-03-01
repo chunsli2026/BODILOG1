@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import '../features/camera/screens/camera_capture_screen.dart';
 import '../features/dashboard/screens/dashboard_screen.dart';
 import 'router.dart';
 import 'theme.dart';
@@ -33,7 +34,7 @@ class _HomeShellState extends State<_HomeShell> {
 
   static const List<Widget> _screens = [
     DashboardScreen(),
-    _PlaceholderScreen(label: 'Camera'),
+    CameraCaptureScreen(),
     _PlaceholderScreen(label: 'Devices'),
     _PlaceholderScreen(label: 'History'),
   ];

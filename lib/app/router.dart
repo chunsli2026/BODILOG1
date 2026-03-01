@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '../features/camera/screens/camera_capture_screen.dart';
+import '../features/camera/screens/image_review_screen.dart';
 import '../features/dashboard/screens/dashboard_screen.dart';
 
 /// Named route constants and route generation for the app.
@@ -8,6 +10,8 @@ class AppRouter {
 
   static const String dashboard = '/dashboard';
   static const String camera = '/camera';
+  static const String cameraReview = '/camera/review';
+  static const String analysis = '/analysis';
   static const String devices = '/devices';
   static const String history = '/history';
   static const String results = '/results';
@@ -23,7 +27,18 @@ class AppRouter {
         );
       case camera:
         return MaterialPageRoute(
-          builder: (_) => const _PlaceholderPage(title: 'Camera'),
+          builder: (_) => const CameraCaptureScreen(),
+          settings: settings,
+        );
+      case cameraReview:
+        final imagePath = settings.arguments as String?;
+        return MaterialPageRoute(
+          builder: (_) => ImageReviewScreen(imagePath: imagePath ?? ''),
+          settings: settings,
+        );
+      case analysis:
+        return MaterialPageRoute(
+          builder: (_) => const _PlaceholderPage(title: 'Analysis'),
           settings: settings,
         );
       case devices:
